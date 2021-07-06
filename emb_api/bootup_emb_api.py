@@ -44,4 +44,4 @@ def embed_and_reduce():
         return jsonify({"emb100":reduced_emb.tolist()})
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=8080, debug='True')
+    app.run(host="localhost", port=5000, debug='True')
