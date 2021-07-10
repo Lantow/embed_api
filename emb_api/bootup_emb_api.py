@@ -1,10 +1,14 @@
 from flask import Flask, request, jsonify
 from embed_and_reduce.emb_and_reduce import EmbAndReduce
 import numpy as np
+import os
+from pathlib import Path
 
+ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
+pca_path = Path(ROOT_DIR).parent / "pca.pkl"
 app = Flask(__name__)
 
-EmbedAndReduce = EmbAndReduce()
+EmbedAndReduce = EmbAndReduce(pca_path)
 
 @app.route('/embed_string', methods=['POST'])
 def embed_string():
