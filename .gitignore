@@ -128,3 +128,5 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+emb_test.json
+test.json
