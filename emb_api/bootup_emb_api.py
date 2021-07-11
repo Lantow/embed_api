@@ -8,7 +8,7 @@ ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
 pca_path = Path(ROOT_DIR).parent / "pca.pkl"
 app = Flask(__name__)
 
-EmbedAndReduce = EmbAndReduce(pca_path)
+EmbedAndReduce = EmbAndReduce(pca_path, Path.home() / "bert")
 
 @app.route('/embed_string', methods=['POST'])
 def embed_string():

@@ -1,7 +1,0 @@
-[core]
-    remote = spaces
-[cache]
-    dir = /Users/jonashoghkyhseandersen/dvc-cache
-['remote "spaces"']
-    url = s3://retsinfomodel
-    endpointurl = https://retsinfosoegning.fra1.digitaloceanspaces.com
