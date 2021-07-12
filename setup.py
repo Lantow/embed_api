@@ -14,6 +14,7 @@ setup(
     platforms='any',
     install_requires=[
         'flask',
+        'gunicorn',
     ],
     classifiers=[
         'Development Status :: 4 - Beta',

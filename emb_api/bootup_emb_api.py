@@ -13,10 +13,9 @@ EmbedAndReduce = EmbAndReduce(pca_path, Path.home() / "bert")
 @app.route('/embed_string', methods=['POST'])
 def embed_string():
     if request.method == 'POST':
-        post = request.get_json()
-
+        string = request.form['string']
         try:
-            embedding = EmbedAndReduce.clean_and_embed(post["search_string"])
+            embedding = EmbedAndReduce.clean_and_embed(string)
         except Exception as E:
             raise E
         
@@ -25,23 +24,21 @@ def embed_string():
 @app.route('/dim_reduce', methods=['POST'])
 def dim_reduce():
     if request.method == 'POST':
-        post = request.get_json()
-        embedding = np.asarray(post["embedding"])
-
+        embedding = request.form["embedding"]
+        embedding = np.asarray(embedding)
         try:
             reduced_emb = EmbedAndReduce.dim_reduce(embedding)
         except Exception as E:
             raise E
 
         return jsonify({"emb100":reduced_emb.tolist()})
-    
+
 @app.route('/embed_and_reduce', methods=['POST'])
 def embed_and_reduce():
-        if request.method == 'POST':
-            post = request.get_json()
-
+    if request.method == 'POST':
+        string = request.form['string']
         try:
-            reduced_emb = EmbedAndReduce.embed_and_reduce(post["search_string"])
+            reduced_emb = EmbedAndReduce.embed_and_reduce(string)
         except Exception as E:
             raise E
         
