@@ -19,7 +19,7 @@ def embed_string():
         except Exception as E:
             raise E
         
-        return jsonify({"emb":embedding.tolist()})
+        return jsonify(embedding.tolist())
 
 @app.route('/dim_reduce', methods=['POST'])
 def dim_reduce():
@@ -31,7 +31,7 @@ def dim_reduce():
         except Exception as E:
             raise E
 
-        return jsonify({"emb100":reduced_emb.tolist()})
+        return jsonify(reduced_emb.tolist())
 
 @app.route('/embed_and_reduce', methods=['POST'])
 def embed_and_reduce():
@@ -42,7 +42,7 @@ def embed_and_reduce():
         except Exception as E:
             raise E
         
-        return jsonify({"emb100":reduced_emb.tolist()})
+        return jsonify(reduced_emb.tolist())
 
 if __name__ == '__main__':
     app.run(host="localhost", port=5000, debug='True')
